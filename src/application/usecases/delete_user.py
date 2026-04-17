@@ -11,5 +11,5 @@ class DeleteUser(DeleteUserPort):
         async with self._uow:
             deleted = await self._uow.users.delete(user_id)
             if not deleted:
-                raise UserNotFoundError()
+                raise UserNotFoundError
             await self._uow.commit()
