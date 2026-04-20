@@ -17,7 +17,7 @@ class SQLAlchemyUserRepository(UserRepository):
         return _to_entity(model)
 
     async def get_by_id(self, user_id: int) -> User | None:
-        model = self._session.get(UserModel, user_id)
+        model = await self._session.get(UserModel, user_id)
         return _to_entity(model) if model else None
 
     async def get_by_email(self, email: str) -> User | None:
